@@ -17,8 +17,7 @@ def ceaser(word, slide, c_direction):
         if letter in alphabet:
             position = alphabet.index(letter);
             new_position = position + slide;
-            new_positions = alphabet[new_position];
-            end_text += alphabet[new_positions];
+            end_text += alphabet[new_position];
         else:
             end_text += letter;
     print(end_text);
@@ -27,7 +26,8 @@ while(playagain != True):
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower();
     text = input("Type your message:\n").lower();
     shift = int(input("Type the shift number:\n"));
-    shift = shift / 26;
+    if shift > 26:
+        shift = shift / 26;
 
     ceaser(word=text, slide=shift, c_direction=direction);
 
